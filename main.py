@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import mysql.connector
 
 # Connect to MySQL
@@ -34,3 +35,29 @@ for row in cursor.fetchall():
     print(row)
 
 conn.close()
+=======
+import mysql.connector as mc
+from mysql.connector import Error
+import pandas as pd
+
+# creating a function for creating server
+def create_server_connection(host_name ,user_name , user_password ):
+    connection = None
+    try:
+        connection = mc.connect(
+            host = host_name,
+            user = user_name,
+            password = user_password
+        )
+        print("Mysql database connected!")
+
+    except Error as err:
+        print(f"Error: '{err}' ")
+
+    return connection   
+
+pw = 'yuktisql'
+database_name = 'work'
+connection = create_server_connection("localhost","root",'yuktisql')
+            
+>>>>>>> 6b470e5 (Created notebook)
